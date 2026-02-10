@@ -222,19 +222,69 @@ The OR operator displays a record if any of the conditions are TRUE.
 
 The AND operator displays a record if all the conditions are TRUE.
 - At Least One Condition Must Be True
+- 
   The following SQL statement selects all fields from Customers where either City is "Berlin", CustomerName starts with the letter "G" or Country is "Norway".
   ```
   SELECT * FROM Customers
   WHERE City = 'Berlin' OR CustomerName LIKE 'G%' OR Country = 'Norway';
 
 - Combining AND and OR
-  You can combine the AND and OR operators.
+
+You can combine the AND and OR operators.
 The following SQL statement selects all customers from Spain that starts with a "G" or an "R".
 Make sure you use parenthesis to get the correct result.
+```
+SELECT * FROM Customers
+WHERE Country = 'Spain' AND (CustomerName LIKE 'G%' OR CustomerName LIKE 'R%');
+```
+Select all Spanish customers that starts with either "G" or "R".
 
+# The NOT Operator
 
+The NOT operator is used in combination with other operators to give the opposite result, also called the negative result.
+In the select statement below we want to return all customers that are NOT from Spain.
+```
+SELECT * FROM Customers
+WHERE NOT Country = 'Spain';
+```
+Select only the customers that are NOT from Spain.
 
+In the example above, the NOT operator is used in combination with the = operator, but it can be used in combination with other comparison and/or logical operators. See examples below.
 
+- Syntax
+  ```
+  SELECT column1, column2, ...
+  FROM table_name
+  WHERE NOT condition;
+
+- NOT LIKE
+  ```
+  SELECT * FROM Customers
+  WHERE CustomerName NOT LIKE 'A%';
+Select customers that does not start with the letter 'A'.
+
+- NOT BETWEEN
+  ```
+  SELECT * FROM Customers
+  WHERE CustomerID NOT BETWEEN 10 AND 60;
+Select customers with a customerID not between 10 and 60.
+- NOT IN
+  ```
+  SELECT * FROM Customers
+  WHERE City NOT IN ('Paris', 'London');
+  
+Select customers that are not from Paris or London.
+- NOT Greater Than
+   ```
+  SELECT * FROM Customers
+  WHERE NOT CustomerID > 50;
+Select customers with a CustomerId not greater than 50.
+
+- NOT Less Than
+  ```
+  SELECT * FROM Customers
+  WHERE NOT CustomerId < 50;
+Select customers with a CustomerID not less than 50.
 
 
 

@@ -286,8 +286,16 @@ Select customers with a CustomerId not greater than 50.
   WHERE NOT CustomerId < 50;
 Select customers with a CustomerID not less than 50.
 
-
-
+# INSERT INTO Statement
+The INSERT INTO statement is used to insert new records in a table.
+- Syntax
+  ```
+  INSERT INTO table_name (column1, column2, column3, ...)
+  VALUES (value1, value2, value3, ...);
+  ```
+  ```
+  INSERT INTO table_name
+  VALUES (value1, value2, value3, ...);
 
 
 

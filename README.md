@@ -297,5 +297,102 @@ The INSERT INTO statement is used to insert new records in a table.
   INSERT INTO table_name
   VALUES (value1, value2, value3, ...);
 
+# NULL Values
+- What is a NULL Value?
+
+If a field in a table is optional, it is possible to insert or update a record without adding any value to this field. This way, the field will be saved with a NULL value.
+
+A NULL value represents an unknown, missing, or inapplicable data in a database field. It is not a value itself, but a placeholder to indicate the absence of data.
+- Note: A NULL value is different from zero (0) or an empty string (''). A field with a NULL value is one that has been left blank upon record creation.
+
+- IS NULL Syntax
+  ```
+  SELECT column_names
+  FROM table_name
+  WHERE column_name IS NULL;
+- IS NOT NULL Syntax
+  ```
+  SELECT column_names
+  FROM table_name
+  WHERE column_name IS NOT NULL;
+# The SQL UPDATE Statement
+The UPDATE statement is used to update or modify one or more records in a table.
+```
+UPDATE table_name
+SET column1 = value1, column2 = value2, ...
+WHERE condition;
+```
+- Note: Be careful when updating records in a table! Notice the WHERE clause in the UPDATE statement. The WHERE clause specifies which record(s) that should be updated. If you omit the WHERE clause, all records in the table will be updated!
+
+# The SQL DELETE Statement
+The DELETE statement is used to delete existing records in a table.
+```
+DELETE FROM table_name WHERE condition;
+```
+- Note: Be careful when deleting records in a table! Notice the WHERE clause in the DELETE statement. The WHERE clause specifies which record(s) should be deleted. If you omit the WHERE clause, all records in the table will be deleted!
+- Delete All Records
+  ```
+  DELETE FROM table_name;
+- Delete a Table
+  ```
+  DROP TABLE table_name;
+
+# The SQL SELECT TOP Clause 
+
+The SELECT TOP clause is used to limit the number of records to return.
+
+The SELECT TOP clause is useful on large tables with thousands of records. Returning a large number of records can impact performance.
+
+The following SQL selects only the first 3 records of the "Customers" table:
+
+```
+SELECT TOP 3 * FROM Customers;
+```
+- Note: Not all database systems support the SELECT TOP clause. MySQL supports the LIMIT clause to select a limited number of records, while Oracle uses FETCH FIRST n ROWS ONLY.
+
+- Syntax
+
+```
+1) Syntax for SQL Server / MS Access
+SELECT TOP num ber|percent column_name(s)
+FROM table_name
+WHERE condition;
+
+2) Syntax for MySQL
+SELECT column_name(s)
+FROM table_name
+WHERE condition
+LIMIT number;
+
+3) Syntax for Oracle 12+
+SELECT column_name(s)
+FROM table_name
+ORDER BY column_name(s)
+FETCH FIRST number ROWS ONLY;
+```
+
+# SQL Aggregate Functions
+An aggregate function is a function that performs a calculation on a set of values, and returns a single value.
+Aggregate functions are often used with the ``GROUP BY`` clause of the ```SELECT``` statement. The ```GROUP BY``` clause splits the result-set into groups of values and the aggregate function can be used to return a single value for each group.
+
+The most commonly used SQL aggregate functions are:
+- MIN() - returns the smallest value of a column
+- MAX() - returns the largest value of a column
+- COUNT() - returns the number of rows in a set
+- SUM() - returns the sum of a numerical column
+- AVG() - returns the average value of a numerical column
+
+Aggregate functions ignore null values (except for COUNT(*)).
+
+
+The behavior of COUNT() depends on the argument used within the parentheses:
+- ```COUNT(*)``` - Counts the total number of rows in a table (including NULL values).
+- ```COUNT(columnname)``` - Counts all non-null values in the column.
+- ```COUNT(DISTINCT columnname)``` - Counts only the unique, non-null values in the column.
+
+
+
+
+
 
 

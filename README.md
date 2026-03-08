@@ -461,7 +461,7 @@ WHERE CustomerID NOT IN (SELECT CustomerID FROM Orders);
 ```
 
 # SQL BETWEEN Operator
-The BETWEEN operator is used in the WHERE clause to select values within a specified range.
+The ```BETWEEN``` operator is used in the ```WHERE``` clause to select values within a specified range.
 
 The range is inclusive - the beginning and end values of the range are included in the results.
 
@@ -472,9 +472,57 @@ WHERE Price BETWEEN 10 AND 20;
 ```
 Select all products with a price between 10 and 20:
 
+- Syntax
+```
+SELECT column_name(s)
+FROM table_name
+WHERE column_name BETWEEN value1 AND value2;
+```
 
+- NOT BETWEEN
+The NOT BETWEEN operator is used in the WHERE clause to select values outside a specified range.
 
+The following SQL returns all products with a price NOT between 10 and 20:
+```
+SELECT * FROM Products
+WHERE Price NOT BETWEEN 10 AND 20;
+```
+- BETWEEN with IN
+The following SQL returns all products with a price between 10 and 20. In addition, the CategoryID must be either 1,2, or 3:
+```
+SELECT * FROM Products
+WHERE Price BETWEEN 10 AND 20
+AND CategoryID IN (1,2,3);
+```
+- BETWEEN Text Values
 
+The following SQL selects all products with a ProductName alphabetically between 'Carnarvon Tigers' and 'Mozzarella di Giovanni':
+```
+SELECT * FROM Products
+WHERE ProductName BETWEEN 'Carnarvon Tigers' AND 'Mozzarella di Giovanni'
+ORDER BY ProductName;
+```
+The following SQL selects all products with a ProductName between Carnarvon Tigers and Chef Anton's Cajun Seasoning:
+```
+SELECT * FROM Products
+WHERE ProductName BETWEEN "Carnarvon Tigers" AND "Chef Anton's Cajun Seasoning"
+ORDER BY ProductName;
+```
+- NOT BETWEEN Text Values
+The following SQL selects all products with a ProductName NOT between 'Carnarvon Tigers' and 'Mozzarella di Giovanni':
+```
+SELECT * FROM Products
+WHERE ProductName NOT BETWEEN 'Carnarvon Tigers' AND 'Mozzarella di Giovanni'
+ORDER BY ProductName;
+```
+- BETWEEN Dates
+The BETWEEN operator is useful for filtering records within a specific date or time period. Ensure the date format matches the database (e.g. 'YYYY-MM-DD').
+
+The following SQL selects all orders placed in July, 1996:
+```
+SELECT * FROM Orders
+WHERE OrderDate BETWEEN '1996-07-01' AND '1996-07-31';
+```
 
 
 

@@ -524,10 +524,22 @@ SELECT * FROM Orders
 WHERE OrderDate BETWEEN '1996-07-01' AND '1996-07-31';
 ```
 
+# SQL Aliases
+SQL aliases are used to give a column or a table a temporary name.
+
+Aliases are used to make column names more readable.
+
+An alias only exists for the duration of that query.
+
+An alias is created with the AS keyword.
+- Syntax
+```
+SELECT column_name AS alias_name
+FROM table_name;
+```
 
 
-
-
+# SQL Joins
 
 
 

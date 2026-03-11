@@ -602,8 +602,8 @@ If there is no match in the right table, the result for the columns from the rig
 The ```LEFT JOIN``` and ```LEFT OUTER JOIN``` keywords are equal - the ```OUTER``` keyword is optional.
 <p align="center">
   <img src="LEFTJOIN.png" width="500">
-</p
-LEFTJOIN.png
+</p>
+
 - Syntax
 ```
 SELECT column_name(s)

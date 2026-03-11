@@ -548,6 +548,11 @@ Here are the different types of JOINs in SQL:
 - ```FULL (OUTER) JOIN```: Returns all rows when there is a match in either the left or right table.
 
 ## INNER JOIN
+The INNER JOIN returns only rows that have matching values in both tables.
+
+You can use just JOIN instead of INNER JOIN, as INNER is the default join type.
+
+
 We can create the following SQL statement (that contains an INNER JOIN), that selects records that have matching values in both tables:
 ```
 SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate
@@ -589,8 +594,43 @@ FROM Orders
 INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID
 INNER JOIN Shippers ON Orders.ShipperID = Shippers.ShipperID;
 ```
+## LEFT JOIN
+The ```LEFT JOIN``` returns all rows from the left table (table1), and only the matched rows from the right table (table2).
+If there is no match in the right table, the result for the columns from the right table will be NULL.
+The ```LEFT JOIN``` and ```LEFT OUTER JOIN``` keywords are equal - the ```OUTER``` keyword is optional.
+- Syntax
+```
+SELECT column_name(s)
+FROM table1
+LEFT JOIN table2
+ON table1.column_name = table2.column_name;
+```
+The following SQL returns all customers and their orders, including customers who have not placed any orders:
+```
+SELECT Customers.CustomerName, Orders.OrderID
+FROM Customers
+LEFT JOIN Orders ON Customers.CustomerID = Orders.CustomerID
+ORDER BY Customers.CustomerName;
+```
+## RIGHT JOIN
+The RIGHT JOIN returns all rows from the right table (table2), and only the matched rows from the left table (table1).
+If there is no match in the left table, the result for the columns from the left table will be NULL.
+The RIGHT JOIN and RIGHT OUTER JOIN keywords are equal - the OUTER keyword is optional.
+- Syntax
+```
+SELECT column_name(s)
+FROM table1
+RIGHT JOIN table2
+ON table1.column_name = table2.column_name;
+```
+The following SQL will return all employees, and any orders they might have placed:
 
-
+```
+SELECT Orders.OrderID, Employees.LastName, Employees.FirstName
+FROM Orders
+RIGHT JOIN Employees ON Orders.EmployeeID = Employees.EmployeeID
+ORDER BY Orders.OrderID;
+```
 
 
 

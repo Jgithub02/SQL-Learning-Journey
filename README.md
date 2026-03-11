@@ -547,6 +547,60 @@ Here are the different types of JOINs in SQL:
 - ```RIGHT (OUTER) JOIN```: Returns all rows from the right table, and only the matched rows from the left table.
 - ```FULL (OUTER) JOIN```: Returns all rows when there is a match in either the left or right table.
 
+## INNER JOIN
+We can create the following SQL statement (that contains an INNER JOIN), that selects records that have matching values in both tables:
+```
+SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate
+FROM Orders
+INNER JOIN Customers ON Orders.CustomerID=Customers.CustomerID;
+```
+- Syntax
+```
+SELECT column_name(s)
+FROM table1
+INNER JOIN table2
+ON table1.column_name = table2.column_name;
+```
+For example: Join Products and Categories with the INNER JOIN keyword
+```
+SELECT ProductID, ProductName, CategoryName
+FROM Products
+INNER JOIN Categories ON Products.CategoryID = Categories.CategoryID;
+```
+It is a good practice to also include the table name when specifying columns in SQL joins, for example: 
+```
+SELECT Products.ProductID, Products.ProductName, Categories.CategoryName
+FROM Products
+INNER JOIN Categories ON Products.CategoryID = Categories.CategoryID;
+```
+JOIN and INNER JOIN will return the same result. INNER is the default join type for JOIN, so when you write JOIN the parser actually writes INNER JOIN. For example: 
+```
+SELECT Products.ProductID, Products.ProductName, Categories.CategoryName
+FROM Products
+JOIN Categories ON Products.CategoryID = Categories.CategoryID;
+```
+- JOIN Multiple Tables
+You can join more than two tables by adding multiple INNER JOIN clauses in your query.
+
+The following SQL selects all orders with customer and shipper information:
+```
+SELECT Orders.OrderID, Customers.CustomerName, Shippers.ShipperName
+FROM Orders
+INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID
+INNER JOIN Shippers ON Orders.ShipperID = Shippers.ShipperID;
+```
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

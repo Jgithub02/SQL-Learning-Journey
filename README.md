@@ -621,7 +621,11 @@ ORDER BY Customers.CustomerName;
 ## RIGHT JOIN
 The RIGHT JOIN returns all rows from the right table (table2), and only the matched rows from the left table (table1).
 If there is no match in the left table, the result for the columns from the left table will be NULL.
-The RIGHT JOIN and RIGHT OUTER JOIN keywords are equal - the OUTER keyword is optional.
+The ```RIGHT JOIN``` and ```RIGHT OUTER JOIN``` keywords are equal - the ```OUTER``` keyword is optional.
+<p align="center">
+  <img src="RIGHTJOIN.png" width="500">
+</p>
+
 - Syntax
 ```
 SELECT column_name(s)
@@ -637,10 +641,32 @@ FROM Orders
 RIGHT JOIN Employees ON Orders.EmployeeID = Employees.EmployeeID
 ORDER BY Orders.OrderID;
 ```
+## FULL JOIN
 
+The FULL JOIN returns all rows when there is a match in either the left or right table.
+If a row in the left table has no match in the right table, the result set includes the left row's data and NULL values for all columns of the right table.
+If a row in the right table has no match in the left table, the result set includes the right row's data and NULL values for all columns of the left table.
 
+The ```FULL JOIN``` and ```FULL OUTER JOIN``` keywords are equal - the ```OUTER``` keyword is optional.
+<p align="center">
+  <img src="FULLOUTERJOIN.png" width="500">
+</p>
 
-
+- Syntax
+```
+SELECT column_name(s)
+FROM table1
+FULL JOIN table2
+ON table1.column_name = table2.column_name
+WHERE condition;
+```
+The following SQL statement selects all customers, and all orders:
+```
+SELECT Customers.CustomerName, Orders.OrderID
+FROM Customers
+FULL JOIN Orders
+ON Customers.CustomerID = Orders.CustomerID;
+```
 
 
 

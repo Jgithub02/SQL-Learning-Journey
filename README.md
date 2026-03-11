@@ -552,7 +552,7 @@ The INNER JOIN returns only rows that have matching values in both tables.
 
 You can use just JOIN instead of INNER JOIN, as INNER is the default join type.
 <p align="center">
-  <img src="images/INNERJOIN.png" width="500">
+  <img src="Screenshot 2026-03-11 102150.png" width="500">
 </p>
 
 We can create the following SQL statement (that contains an INNER JOIN), that selects records that have matching values in both tables:

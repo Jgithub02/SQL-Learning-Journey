@@ -9,6 +9,7 @@ SQL is a standard language for storing, manipulating, and retrieving data in dat
 
 - SQL became a standard of the American National Standards Institute (ANSI) in 1986, and of the International Organization for Standardization (ISO) in 1987.
 
+
 # What Can SQL do?
 - SQL can execute queries against a database
 - SQL can retrieve data from a database
